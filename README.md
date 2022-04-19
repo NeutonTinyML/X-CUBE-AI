@@ -50,9 +50,9 @@ The dataset had been ‘convolved’ with the defined window size where the new 
 
 ## Data & trained models
 Preprocessed training and testing data along with the trained models for each use-case are available at the following links:
-[PAMAP2](https://1drv.ms/u/s!Al3jbxk-T6LAme9eA2-F3G_FhXN1Ew)
-[SHL](https://1drv.ms/u/s!Al3jbxk-T6LAme9fbnndAF6MyfRXIw)
-[SisFall](https://1drv.ms/u/s!Al3jbxk-T6LAme9gNShdx3UY-yxs8g)
+- [PAMAP2](https://1drv.ms/u/s!Al3jbxk-T6LAme9eA2-F3G_FhXN1Ew)
+- [SHL](https://1drv.ms/u/s!Al3jbxk-T6LAme9fbnndAF6MyfRXIw)
+- [SisFall](https://1drv.ms/u/s!Al3jbxk-T6LAme9gNShdx3UY-yxs8g)
 
 ## Models creation outline
 
