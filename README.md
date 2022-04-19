@@ -41,7 +41,7 @@ The dataset had been ‘convolved’ with the defined window size where the new 
 | RandomForestClassifier * | 0.963 / 7009 | 0.999 / 1113 | 0.852 / 6140 |
 | KNNClassifier ** | 0.947 / 6300 | 0.999 / 30800 | 0.831 / 209500 |
 | GuassianNBClassifier ** | 0.819 / 12 | 0.959 / 23 | 0.779 / 22 |
-| Tensorflow Lite ** | 0.942 / 20 | 0.998 / 21.91 | 0.847 / 65 |
+| Tensorflow Lite ** | 0.953 / 20 | 0.998 / 21.91 | 0.796 / 65 |
 
 ###### *Measured by X-CUBE-AI
 ###### **ONNX model file size. Not measured by X-CUBE-AI
@@ -164,3 +164,21 @@ model = build_and_compile_model()
 
 ### multiclass tensorflow model architecture
 
+```
+def build_and_compile_model():
+    model = keras.Sequential([
+#        norm,
+        layers.Dense(32, activation='relu'),
+        layers.Dense(16, activation='relu'),
+        layers.Dense(12, activation='relu'),
+        layers.Dense(train[target].nunique(), activation = 'softmax')
+        ])
+
+    model.compile(loss='categorical_crossentropy',
+                  optimizer=tf.keras.optimizers.Adam(0.001))
+    return model
+
+tf.random.set_seed(5)
+
+model = build_and_compile_model()
+```
