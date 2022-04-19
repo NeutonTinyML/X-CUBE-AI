@@ -167,7 +167,6 @@ model = build_and_compile_model()
 ```
 def build_and_compile_model():
     model = keras.Sequential([
-#        norm,
         layers.Dense(32, activation='relu'),
         layers.Dense(16, activation='relu'),
         layers.Dense(12, activation='relu'),
