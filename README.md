@@ -34,18 +34,18 @@ The dataset had been ‘convolved’ with the defined window size where the new 
 
 | Algorithm | PAMAP2 | SHL | SisFall |
 | --- | --- | --- | --- |
-| | accuracy/FLASH/RAM | accuracy/FLASH/RAM | accuracy/FLASH/RAM |
-| Neuton * | 0.957 / 5.32 / 0.92 | 0.999 / 1.29 / 1.3 | 0.821 / 2 / 5.2 |
-| DecisionTree * | 0.932 / 66.46 / 0.48 | 0.998 / 5.36 / 1.3 | 0.693 / 59.52 / 5.07 |
-| AdaBoostClassifier ** | 0.425 / 260 / - | 0.312 / 240 / - | 0.811 / 207 / - |
-| RandomForestClassifier * | 0.963 / 7009 / 0.487 | 0.999 / 1113 / 1.3 | 0.852 / 6140 / 5.07 |
-| KNNClassifier ** | 0.947 / 6300 / - | 0.999 / 30800 / - | 0.831 / 209500 / - |
-| GuassianNBClassifier ** | 0.819 / 12 / - | 0.959 / 23 / - | 0.779 / 22 / - |
-| Tensorflow * | 0.942 / 8.76 / 0.48 | 0.998 / 21.91 / 1.33 | 0.847 / 82.26 / 5.07 |
+| | accuracy/size | accuracy/size | accuracy/size |
+| Neuton * | 0.957 / 5.32 | 0.999 / 1.29 | 0.821 / 2 |
+| DecisionTree * | 0.932 / 66.46 | 0.998 / 5.36 | 0.693 / 59.52 |
+| AdaBoostClassifier ** | 0.425 / 260 | 0.312 / 240 | 0.811 / 207 |
+| RandomForestClassifier * | 0.963 / 7009 | 0.999 / 1113 | 0.852 / 6140 |
+| KNNClassifier ** | 0.947 / 6300 | 0.999 / 30800 | 0.831 / 209500 |
+| GuassianNBClassifier ** | 0.819 / 12 | 0.959 / 23 | 0.779 / 22 |
+| Tensorflow Lite ** | 0.942 / 20 | 0.998 / 21.91 | 0.847 / 65 |
 
 ###### *Measured by X-CUBE-AI
 ###### **ONNX model file size. Not measured by X-CUBE-AI
-###### FLASH/RAM usage is represented in Kilobytes
+###### size is represented in Kilobytes
 
 
 ## Data & trained models
@@ -164,21 +164,3 @@ model = build_and_compile_model()
 
 ### multiclass tensorflow model architecture
 
-
-
-
-
-
-
-history = model.fit(
-    train_features, train_labels,
-    batch_size = 64,
-    validation_split=0.2,
-    verbose=2, epochs=2)
-
-#results = model.evaluate(val_features, y_val)
-test_predictions = model.predict(test_features)
-test_pred_class = [np.argmax(proba) for proba in test_predictions]
-print(model.summary())
-from sklearn.metrics import accuracy_score
-print(f'Balanced accuracy:\t{accuracy_score(test_labels, test_pred_class)}')
