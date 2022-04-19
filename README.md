@@ -57,7 +57,7 @@ Preprocessed training and testing data along with the trained models for each us
 ## Models creation outline
 
 ### Neuton
-Neuton models had been created via a free Automated TinyML platform [neuton.ai](neuton.ai).
+Neuton models had been created via a free Automated TinyML platform [neuton.ai](https://neuton.ai).
 
 ### DecisionTree
 Scikit-learn distribution of a DecisionTreeClassifier had been used with default settings.
