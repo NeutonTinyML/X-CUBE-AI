@@ -1,6 +1,6 @@
 # Building Neuton TinyML models 
 
-This research introduces [Neuton.ai service]("neuton.ai") aimed at automatic creation of tinyML models for deployment on small microcontrollers.
+This research introduces [Neuton.ai service](https://neuton.ai) aimed at automatic creation of tinyML models for deployment on small microcontrollers.
 
 Neuton AutoML framework model sizes had been benchmarked on 3 publicly available datasets. The task of each classification model was to identify the class to which the action belongs based on signal data.
 
@@ -10,13 +10,13 @@ Within each experiment models validation had been performed on out of sample tes
 
 ## Datasets outline and preprocessing
 
-### [Sussex-Huawei Locomotion (SHL)]("http://www.shl-dataset.org")
+### [Sussex-Huawei Locomotion (SHL)](http://www.shl-dataset.org)
 A versatile annotated dataset of modes of locomotion and transportation of mobile users. It was recorded over a period of 7 months in 2017 by 3 participants engaging in 8 different modes of transportation in real-life setting in the United Kingdom. The goal is to classify one of 8 different activities: Still, Walk, Run, Bike, Car, Bus, Train, Subway.
 
 Window with 64 sequential records had been selected to represent signal class.
 Model training and validation had been performed on the subset of accelerometer, gyroscope, linear accelerometer features. The dataset had been ‘convolved’ with the defined window size extracting 9 different statistical values for each feature within a window: minimum, maximum, mean, rms, sign, var, PFD, skewness, kurtosis.
 
-### [PAMAP2]("https://archive.ics.uci.edu/ml/datasets/pamap2+physical+activity+monitoring")
+### [PAMAP2](https://archive.ics.uci.edu/ml/datasets/pamap2+physical+activity+monitoring)
 Physical Activity Monitoring dataset contains data of 18 different physical activities (such as walking, cycling, playing soccer, etc.), performed by 9 subjects wearing 3 inertial measurement units and a heart rate monitor. The dataset can be used for activity recognition and intensity estimation, while developing and applying algorithms of data processing, segmentation, feature extraction and classification. The goal is to recognize which type of activity is taking place based on the sensor data.
 
 Window with 512 sequential records had been selected to represent signal class.
@@ -24,7 +24,7 @@ The data contains a wide variety of different sensors data. For this experiment 
 Accelerometer features had been ‘convolved’ with the defined window size with extraction of statistical signal features based on the following research: See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/260291508
 This has resulted in 108 features.
 
-### [SisFall]("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5298771/")
+### [SisFall](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5298771/)
 A dataset of falls and activities of daily living (ADLs) acquired with a self-developed device composed of two types of accelerometer and one gyroscope. It consists of 19 ADLs and 15 fall types performed by 23 young adults, 15 ADL types performed by 14 healthy and independent participants over 62 years old, and data from one participant of 60 years old that performed all ADLs and falls. The goal is to train the model to recognize a binary target: is a person falling or not.
 
 Window with 135 sequential records had been selected to represent signal class.
@@ -50,12 +50,14 @@ The dataset had been ‘convolved’ with the defined window size where the new 
 
 ## Data & trained models
 Preprocessed training and testing data along with the trained models for each use-case are available at the following links:
-[PAMAP2]("https://1drv.ms/u/s!Al3jbxk-T6LAme9eA2-F3G_FhXN1Ew")
+[PAMAP2](https://1drv.ms/u/s!Al3jbxk-T6LAme9eA2-F3G_FhXN1Ew)
+[SHL](https://1drv.ms/u/s!Al3jbxk-T6LAme9fbnndAF6MyfRXIw)
+[SisFall](https://1drv.ms/u/s!Al3jbxk-T6LAme9gNShdx3UY-yxs8g)
 
 ## Models creation outline
 
 ### Neuton
-Neuton models had been created via a free Automated TinyML platform [neuton.ai]('neuton.ai').
+Neuton models had been created via a free Automated TinyML platform [neuton.ai](neuton.ai).
 
 ### DecisionTree
 Scikit-learn distribution of a DecisionTreeClassifier had been used with default settings.
