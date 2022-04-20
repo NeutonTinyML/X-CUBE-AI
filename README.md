@@ -1,3 +1,4 @@
+![logo](repo_logo.png?raw=true "Title")
 # Building Neuton TinyML models 
 
 This research introduces [Neuton.ai service](https://neuton.ai) aimed at automatic creation of tinyML models for deployment on small microcontrollers.
