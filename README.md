@@ -33,16 +33,7 @@ The dataset had been ‘convolved’ with the defined window size where the new 
 
 ## Models accuracy and size comparison
 
-| Algorithm | PAMAP2 | SHL | SisFall |
-| --- | --- | --- | --- |
-| | accuracy/size | accuracy/size | accuracy/size |
-| Neuton * | 0.957 / 5.32 | 0.999 / 1.29 | 0.821 / 2 |
-| DecisionTree * | 0.932 / 66.46 | 0.998 / 5.36 | 0.693 / 59.52 |
-| AdaBoostClassifier ** | 0.425 / 260 | 0.312 / 240 | 0.811 / 207 |
-| RandomForestClassifier * | 0.963 / 7009 | 0.999 / 1113 | 0.852 / 6140 |
-| KNNClassifier ** | 0.947 / 6300 | 0.999 / 30800 | 0.831 / 209500 |
-| GuassianNBClassifier ** | 0.819 / 12 | 0.959 / 23 | 0.779 / 22 |
-| Tensorflow Lite * | 0.953 / 17 | 0.998 / 21.91 | 0.796 / 62 |
+![comparison_table](comparison_table.png?raw=true "comparison_table")
 
 ###### *Measured by X-CUBE-AI
 ###### **ONNX model file size. Not measured by X-CUBE-AI
