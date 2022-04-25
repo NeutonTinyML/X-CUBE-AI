@@ -101,7 +101,7 @@ model.fit(X, y)
 pred = model.predict(test)
 ```
 
-### Tensorflow
+### Tensorflow Light
 TF backend with Keras wrapper had been used for the purpose of this experiment. Two different architectures had been selected for the binary classfication use-case (SisFall) and for the multiclass classification use-cases (PAMAP2, SHL).
 
 Optimal architectures in respect to the accuracy/size tradeof had been selected through various trials.
@@ -176,3 +176,31 @@ tf.random.set_seed(5)
 
 model = build_and_compile_model()
 ```
+
+### Conversion of trained Tensorflow model to TensorflowLite
+```
+# load data
+X_test = pd.read_csv('test.csv')
+X_test = X_test.to_numpy()
+
+# specify representative dataset
+def representative_data_gen():
+    for i_value in tf.data.Dataset.from_tensor_slices(X_test).batch(1).take(100):
+        i_value_f32 = tf.dtypes.cast(i_value, tf.float32)
+        yield [i_value_f32]
+
+#path to save your converted TF Lite model
+converted_model_path_global = 'path_to_save_TF_model.tflite'
+
+#path to saved TF model
+converter = tf.lite.TFLiteConverter.from_saved_model('saved_TF_model_folder_path')
+converter.optimizations = [tf.lite.Optimize.DEFAULT]
+#Specify quantization type
+converter.target_spec.supported_types = [tf.float32]
+converter.representative_dataset = tf.lite.RepresentativeDataset(representative_data_gen)
+
+tflite_quant_model = converter.convert()
+open(converted_model_path_global, 'wb').write(tflite_quant_model)
+```
+
+Please note that in this experiment for comparison purposes we are using the 32-bit TF model quantisation hence Neuton models had been deliberately built with 32-bit architecture.
